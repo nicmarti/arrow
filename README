@@ -1,0 +1,60 @@
+Captaindash - Arrow
+====================
+
+Exercice Play2 Scala et JS Front
+
+Objectif :
+==========
+
+Construire une application Web Play2+Scala+JS qui affichera le classement des langages utilisés sur les derniers Gists publiés sur Github.
+
+Les Gists (https://gist.github.com/) sont un moyen simple et pratique de partager du code, publiquement ou non.
+Il est possible de définir le langage lorsque l'on créé un gist.
+
+Github propose un endpoint qui retourne les derniers Gists publiques : https://api.github.com/gists/public
+
+Les moyens dont vous disposez :
+-------------------------------
+
+Un projet Play 2.2.x vous permet de démarrer avec une version simple de l'application.
+
+J'ai écrit ce code avec Play 2.2.3, vous pouvez utiliser 2.2.6 (mais pas la version 2.3)
+
+- http://downloads.typesafe.com/play/2.2.6/play-2.2.6.zip
+- http://downloads.typesafe.com/play/2.2.3/play-2.2.3.zip
+
+Ce que vous devez faire du coté serveur :
+-----------------------------------------
+
+  - commencez par regarder le code, et fixer les TODO, afin d'afficher la liste des derniers Gists, envoyé par le controller FakeGithub
+  - un Gist contient un ou plusieurs fichiers, et chaque fichier donne le type ainsi que le langage utilisé.
+    Trouver un moyen de dire que "les 100 derniers Gists sont composés de 54 JSON, 32 Scala et xxx en autre format"
+  - modifier le timer et le configurer à 5 secondes
+  - s'assurer que le code Scala fait bien le travail de regroupement, et retourne non plus les Gists, mais une structure
+  indiquant directement le nombre de Gists, et le nombre de fichiers pour chacun des langages trouvés au moment de l'appel
+  sur Github. Vous êtes libre de créer d'autres structures et d'autres objets : carte blanche.
+
+
+A ce stade, votre code Scala doit donc pouvoir aller chercher les 100 derniers Gists, extraire la répartition des langages,
+et retourner cette information au client sous la forme d'une nouvelle structure JSON
+
+Bonus :
+  - mettre en place un système d'autorisation pour pouvoir éviter le problème du quota avec Github
+
+Ce que vous devez faire ensuite du côté client :
+------------------------------------------------
+
+  - Afficher en temps réel un tableau avec la liste des langages et le nombre de gists concernés.
+  - Permettre de filtrer l'affichage pour ne voir qu'un seul type de langage
+
+Bonus :
+
+  - faire moins moche, et partir sur le thème de "The Arrow"
+  - montrer que [VOTRE_FRAMEWORK_JS_FAVORI] est en mesure de gérer EventSource + Server-sent, et imaginez d'autres cas d'usages
+
+Idéalement, le code sera livré sur un repo Github privé. Sinon un tar.gz par email, ça marche aussi.
+
+Merci de garder votre solution privée.
+
+Bonne chance
+
