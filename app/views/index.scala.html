@@ -1,0 +1,29 @@
+@()(implicit flash:Flash)
+
+    @main("The Arrow") {
+
+        <h1>Arrow</h1>
+
+        <p>Les derniers Gists</p>
+
+        <div id="messages"></div>
+
+
+<script type="text/javascript">
+
+//check for browser support
+if(typeof(EventSource)!=="undefined") {
+	//create an object, passing it the name and location of the server side script
+	var eSource = new EventSource("/loadLastGists");
+	//detect message receipt
+	eSource.onmessage = function(event) {
+		//write the received data to the page
+		document.getElementById("messages").innerHTML = event.data;
+	};
+}
+else {
+	document.getElementById("messages").innerHTML="Votre navigateur ne supporte pas Server-sent event.";
+}
+</script>
+
+    }
